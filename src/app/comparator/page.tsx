@@ -28,63 +28,63 @@ export default function ComparatorPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100">
       <Navigation />
 
       <main className="container mx-auto px-4 py-8">
         {/* Overview Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Competidores</CardTitle>
-              <Building2 className="h-4 w-4 text-amber-600" />
+              <CardTitle className="text-sm font-medium text-neutral-700">Competidores</CardTitle>
+              <Building2 className="h-4 w-4 text-neutral-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-amber-600">{competitors.length}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-neutral-800">{competitors.length}</div>
+              <p className="text-xs text-neutral-500">
                 Empresas analizadas
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Mercado Total</CardTitle>
-              <TrendingUp className="h-4 w-4 text-blue-600" />
+              <CardTitle className="text-sm font-medium text-neutral-700">Mercado Total</CardTitle>
+              <TrendingUp className="h-4 w-4 text-neutral-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-blue-600">
+              <div className="text-2xl font-bold text-neutral-800">
                 €{competitors.reduce((acc, c) => acc + c.revenue, 0).toFixed(1)}M
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-neutral-500">
                 Ingresos combinados
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Crecimiento Promedio</CardTitle>
-              <BarChart3 className="h-4 w-4 text-green-600" />
+              <CardTitle className="text-sm font-medium text-neutral-700">Crecimiento Promedio</CardTitle>
+              <BarChart3 className="h-4 w-4 text-neutral-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-green-600">
+              <div className="text-2xl font-bold text-neutral-800">
                 {(competitors.reduce((acc, c) => acc + c.growth, 0) / competitors.length).toFixed(1)}%
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-neutral-500">
                 Crecimiento promedio
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Posición East Crema</CardTitle>
-              <Target className="h-4 w-4 text-purple-600" />
+              <CardTitle className="text-sm font-medium text-neutral-700">Posición East Crema</CardTitle>
+              <Target className="h-4 w-4 text-neutral-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-purple-600">#2</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-neutral-800">#2</div>
+              <p className="text-xs text-neutral-500">
                 En rentabilidad
               </p>
             </CardContent>
@@ -94,13 +94,13 @@ export default function ComparatorPage() {
         {/* KPI Comparison Tables */}
         <div className="space-y-8">
           {kpis.map((kpi) => (
-            <Card key={kpi.key} className="bg-white/80 backdrop-blur-sm">
+            <Card key={kpi.key} className="bg-white/90 backdrop-blur-sm border-neutral-200">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <BarChart3 className="h-5 w-5 text-amber-600" />
+                <CardTitle className="flex items-center gap-2 text-neutral-800">
+                  <BarChart3 className="h-5 w-5 text-neutral-600" />
                   {kpi.name}
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-neutral-600">
                   Comparativa de {kpi.name.toLowerCase()} entre competidores
                 </CardDescription>
               </CardHeader>
@@ -190,23 +190,23 @@ export default function ComparatorPage() {
         </div>
 
         {/* Insights */}
-        <Card className="bg-gradient-to-r from-amber-50 to-orange-50 border-amber-200">
+        <Card className="bg-gradient-to-r from-neutral-50 to-neutral-100 border-neutral-200">
           <CardHeader>
-            <CardTitle className="text-amber-800">💡 Insights Estratégicos</CardTitle>
+            <CardTitle className="text-neutral-800">💡 Insights Estratégicos</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold text-amber-800 mb-2">Fortalezas de East Crema</h4>
-                <ul className="space-y-1 text-sm text-amber-700">
+                <h4 className="font-semibold text-neutral-800 mb-2">Fortalezas de East Crema</h4>
+                <ul className="space-y-1 text-sm text-neutral-700">
                   <li>• Segundo lugar en rentabilidad (14%)</li>
                   <li>• Crecimiento superior al promedio (20%)</li>
                   <li>• Posición sólida en cuota de mercado (21%)</li>
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold text-amber-800 mb-2">Oportunidades de Mejora</h4>
-                <ul className="space-y-1 text-sm text-amber-700">
+                <h4 className="font-semibold text-neutral-800 mb-2">Oportunidades de Mejora</h4>
+                <ul className="space-y-1 text-sm text-neutral-700">
                   <li>• Incrementar ingresos para competir con Nomad</li>
                   <li>• Mejorar rentabilidad para superar a Syra</li>
                   <li>• Mantener el crecimiento actual</li>

@@ -70,57 +70,57 @@ export default function CompetitorsPage() {
       <main className="container mx-auto px-4 py-8">
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Competidores</CardTitle>
-              <Building2 className="h-4 w-4 text-amber-600" />
+              <CardTitle className="text-sm font-medium text-neutral-700">Total Competidores</CardTitle>
+              <Building2 className="h-4 w-4 text-neutral-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-amber-600">{competitors.length}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-neutral-800">{competitors.length}</div>
+              <p className="text-xs text-neutral-500">
                 Empresas analizadas
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Documentos</CardTitle>
-              <FileText className="h-4 w-4 text-blue-600" />
+              <CardTitle className="text-sm font-medium text-neutral-700">Documentos</CardTitle>
+              <FileText className="h-4 w-4 text-neutral-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-blue-600">
+              <div className="text-2xl font-bold text-neutral-800">
                 {competitors.reduce((acc, c) => acc + c.documents, 0)}
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-neutral-500">
                 Cuentas anuales
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">KPIs Extraídos</CardTitle>
-              <TrendingUp className="h-4 w-4 text-green-600" />
+              <CardTitle className="text-sm font-medium text-neutral-700">KPIs Extraídos</CardTitle>
+              <TrendingUp className="h-4 w-4 text-neutral-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-green-600">
+              <div className="text-2xl font-bold text-neutral-800">
                 {competitors.reduce((acc, c) => acc + c.kpis, 0)}
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-neutral-500">
                 Métricas financieras
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Ingresos Totales</CardTitle>
-              <TrendingUp className="h-4 w-4 text-purple-600" />
+              <CardTitle className="text-sm font-medium text-neutral-700">Ingresos Totales</CardTitle>
+              <TrendingUp className="h-4 w-4 text-neutral-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-purple-600">€9.0M</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-neutral-800">€9.0M</div>
+              <p className="text-xs text-neutral-500">
                 Mercado combinado
               </p>
             </CardContent>
@@ -130,16 +130,16 @@ export default function CompetitorsPage() {
         {/* Competitors List */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-gray-900">Competidores</h2>
+            <h2 className="text-2xl font-bold text-neutral-900">Competidores</h2>
             <div className="flex gap-2">
-              <Button variant="outline">Filtrar</Button>
-              <Button variant="outline">Ordenar</Button>
+              <Button variant="outline" className="border-neutral-300 text-neutral-700 hover:bg-neutral-50">Filtrar</Button>
+              <Button variant="outline" className="border-neutral-300 text-neutral-700 hover:bg-neutral-50">Ordenar</Button>
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {competitors.map((competitor) => (
-              <Card key={competitor.id} className="bg-white/80 backdrop-blur-sm hover:shadow-lg transition-shadow">
+              <Card key={competitor.id} className="bg-white/90 backdrop-blur-sm hover:shadow-lg border-neutral-200 transition-shadow">
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div>
@@ -207,13 +207,13 @@ export default function CompetitorsPage() {
 
                     {/* Actions */}
                     <div className="flex gap-2 pt-2">
-                      <Button variant="outline" size="sm" className="flex-1">
+                      <Button variant="outline" size="sm" className="flex-1 border-neutral-300 text-neutral-700 hover:bg-neutral-50">
                         Ver Detalles
                       </Button>
-                      <Button variant="outline" size="sm" className="flex-1">
+                      <Button variant="outline" size="sm" className="flex-1 border-neutral-300 text-neutral-700 hover:bg-neutral-50">
                         Comparar
                       </Button>
-                      <Button size="sm" className="bg-amber-600 hover:bg-amber-700">
+                      <Button size="sm" className="bg-[#000f9f] hover:bg-[#000d8a] text-white">
                         Analizar
                       </Button>
                     </div>

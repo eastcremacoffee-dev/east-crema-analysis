@@ -43,38 +43,38 @@ export default function UploadPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100">
       <Navigation />
 
       <main className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Upload Section */}
           <div className="lg:col-span-2">
-            <Card className="bg-white/80 backdrop-blur-sm">
+            <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Upload className="h-5 w-5 text-amber-600" />
+                <CardTitle className="flex items-center gap-2 text-neutral-800">
+                  <Upload className="h-5 w-5 text-neutral-600" />
                   Subir Cuentas Anuales
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-neutral-600">
                   Sube documentos PDF de cuentas anuales para extraer KPIs automáticamente
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-6">
                   {/* Upload Area */}
-                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-amber-500 transition-colors">
-                    <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                    <h3 className="text-lg font-medium text-gray-900 mb-2">
+                  <div className="border-2 border-dashed border-neutral-300 rounded-lg p-8 text-center hover:border-[#000f9f] transition-colors">
+                    <Upload className="h-12 w-12 text-neutral-400 mx-auto mb-4" />
+                    <h3 className="text-lg font-medium text-neutral-900 mb-2">
                       Arrastra y suelta tus archivos aquí
                     </h3>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-neutral-600 mb-4">
                       O haz clic para seleccionar archivos
                     </p>
-                    <Button className="bg-amber-600 hover:bg-amber-700">
+                    <Button className="bg-[#000f9f] hover:bg-[#000d8a] text-white">
                       Seleccionar Archivos
                     </Button>
-                    <p className="text-sm text-gray-500 mt-2">
+                    <p className="text-sm text-neutral-500 mt-2">
                       Formatos soportados: PDF (máx. 10MB)
                     </p>
                   </div>
@@ -131,7 +131,7 @@ export default function UploadPage() {
                       />
                     </div>
 
-                    <Button className="w-full bg-amber-600 hover:bg-amber-700 h-12">
+                    <Button className="w-full bg-[#000f9f] hover:bg-[#000d8a] h-12 text-white">
                       <Upload className="h-4 w-4 mr-2" />
                       Procesar Documento
                     </Button>
