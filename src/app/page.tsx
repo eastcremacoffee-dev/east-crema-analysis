@@ -11,7 +11,7 @@ import {
   Filter,
   Calendar
 } from "lucide-react"
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
+// import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 
 export default function Home() {
   // Datos de ventas por año
@@ -156,23 +156,22 @@ export default function Home() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="h-80">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={salesData[2023]}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                    <XAxis dataKey="name" stroke="#64748b" fontSize={12} />
-                    <YAxis stroke="#64748b" fontSize={12} />
-                    <Tooltip 
-                      contentStyle={{ 
-                        backgroundColor: '#ffffff', 
-                        border: '1px solid #e2e8f0',
-                        borderRadius: '8px',
-                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                      }} 
-                    />
-                    <Bar dataKey="ventas" fill="#000f9f" radius={[4, 4, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
+              <div className="space-y-4">
+                {salesData[2023].map((competitor, index) => (
+                  <div key={index} className="flex items-center justify-between p-4 bg-neutral-50 rounded-lg border border-neutral-200">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-3 h-3 rounded-full bg-[#000f9f]"></div>
+                      <div>
+                        <p className="font-medium text-neutral-800">{competitor.name}</p>
+                        <p className="text-sm text-neutral-600">Crecimiento: +{competitor.crecimiento}%</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-lg font-bold text-neutral-800">€{competitor.ventas}M</p>
+                      <p className="text-sm text-neutral-500">Ventas 2023</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -190,24 +189,25 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="h-64">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={yearComparison}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                      <XAxis dataKey="name" stroke="#64748b" fontSize={12} />
-                      <YAxis stroke="#64748b" fontSize={12} />
-                      <Tooltip 
-                        contentStyle={{ 
-                          backgroundColor: '#ffffff', 
-                          border: '1px solid #e2e8f0',
-                          borderRadius: '8px',
-                          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                        }} 
-                      />
-                      <Bar dataKey="2022" fill="#94a3b8" name="2022" />
-                      <Bar dataKey="2023" fill="#000f9f" name="2023" />
-                    </BarChart>
-                  </ResponsiveContainer>
+                <div className="space-y-4">
+                  {yearComparison.map((competitor, index) => (
+                    <div key={index} className="p-4 bg-neutral-50 rounded-lg border border-neutral-200">
+                      <div className="flex items-center justify-between mb-2">
+                        <p className="font-medium text-neutral-800">{competitor.name}</p>
+                        <span className="text-sm font-medium text-green-600">+{competitor.crecimiento}%</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="text-center">
+                          <p className="text-sm text-neutral-600">2022</p>
+                          <p className="text-lg font-bold text-neutral-700">€{competitor['2022']}M</p>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-sm text-neutral-600">2023</p>
+                          <p className="text-lg font-bold text-[#000f9f]">€{competitor['2023']}M</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -223,33 +223,22 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="h-64">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie
-                        data={growthData}
-                        cx="50%"
-                        cy="50%"
-                        labelLine={false}
-                        label={({ name, crecimiento }) => `${name}: ${crecimiento}%`}
-                        outerRadius={80}
-                        fill="#8884d8"
-                        dataKey="crecimiento"
-                      >
-                        {growthData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
-                      </Pie>
-                      <Tooltip 
-                        contentStyle={{ 
-                          backgroundColor: '#ffffff', 
-                          border: '1px solid #e2e8f0',
-                          borderRadius: '8px',
-                          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                        }} 
-                      />
-                    </PieChart>
-                  </ResponsiveContainer>
+                <div className="space-y-4">
+                  {growthData.map((competitor, index) => (
+                    <div key={index} className="flex items-center justify-between p-3 bg-neutral-50 rounded-lg border border-neutral-200">
+                      <div className="flex items-center space-x-3">
+                        <div 
+                          className="w-4 h-4 rounded-full" 
+                          style={{ backgroundColor: COLORS[index % COLORS.length] }}
+                        ></div>
+                        <p className="font-medium text-neutral-800">{competitor.name}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-lg font-bold text-neutral-800">+{competitor.crecimiento}%</p>
+                        <p className="text-sm text-neutral-500">Crecimiento</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
