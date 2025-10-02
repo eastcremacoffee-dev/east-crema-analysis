@@ -8,12 +8,10 @@ import {
   Newspaper, 
   BarChart3,
   Upload,
-  Users,
-  Coffee,
   Filter,
   Calendar
 } from "lucide-react"
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 
 export default function Home() {
   // Datos de ventas por año

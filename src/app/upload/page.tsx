@@ -6,7 +6,6 @@ import {
   FileText, 
   Building2,
   Calendar,
-  Coffee,
   CheckCircle,
   AlertCircle
 } from "lucide-react"

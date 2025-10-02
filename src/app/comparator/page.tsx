@@ -5,9 +5,6 @@ import {
   BarChart3, 
   TrendingUp, 
   Building2,
-  Coffee,
-  Download,
-  Filter,
   Target
 } from "lucide-react"
 

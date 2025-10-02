@@ -3,12 +3,10 @@ import { Button } from "@/components/ui/button"
 import { Navigation } from "@/components/navigation"
 import { 
   Building2, 
-  Plus, 
   TrendingUp, 
   FileText,
   Globe,
-  MapPin,
-  Coffee
+  MapPin
 } from "lucide-react"
 
 export default function CompetitorsPage() {
