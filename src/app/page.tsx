@@ -130,24 +130,99 @@ export default function Home() {
           </Card>
         </div>
 
-        {/* Gráficos de Análisis */}
-        <div className="space-y-8 mb-12">
-          {/* Comparativa de Ventas por Año */}
-          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
-            <CardHeader>
+        {/* KPIs Principales */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Card className="bg-white border-neutral-200 shadow-sm">
+            <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="flex items-center gap-2 text-neutral-800">
-                    <BarChart3 className="h-5 w-5 text-neutral-600" />
-                    Comparativa de Ventas
-                  </CardTitle>
-                  <CardDescription className="text-neutral-600">
-                    Análisis de ventas por competidor y año
-                  </CardDescription>
+                  <p className="text-sm font-medium text-neutral-600">Facturación Bruta</p>
+                  <p className="text-2xl font-bold text-neutral-900">€13.2M</p>
+                  <p className="text-sm text-green-600 flex items-center gap-1">
+                    <TrendingUp className="h-3 w-3" />
+                    +15.2% vs 2022
+                  </p>
+                </div>
+                <div className="w-12 h-12 bg-[#000f9f]/10 rounded-lg flex items-center justify-center">
+                  <BarChart3 className="h-6 w-6 text-[#000f9f]" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white border-neutral-200 shadow-sm">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-neutral-600">Facturación Neta</p>
+                  <p className="text-2xl font-bold text-neutral-900">€11.8M</p>
+                  <p className="text-sm text-green-600 flex items-center gap-1">
+                    <TrendingUp className="h-3 w-3" />
+                    +18.5% vs 2022
+                  </p>
+                </div>
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                  <FileText className="h-6 w-6 text-green-600" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white border-neutral-200 shadow-sm">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-neutral-600">Ticket Medio</p>
+                  <p className="text-2xl font-bold text-neutral-900">€4.2</p>
+                  <p className="text-sm text-green-600 flex items-center gap-1">
+                    <TrendingUp className="h-3 w-3" />
+                    +8.3% vs 2022
+                  </p>
+                </div>
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <Building2 className="h-6 w-6 text-blue-600" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white border-neutral-200 shadow-sm">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-neutral-600">Crecimiento Promedio</p>
+                  <p className="text-2xl font-bold text-neutral-900">+14.7%</p>
+                  <p className="text-sm text-green-600 flex items-center gap-1">
+                    <TrendingUp className="h-3 w-3" />
+                    Sector cafetero
+                  </p>
+                </div>
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <Newspaper className="h-6 w-6 text-purple-600" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Gráficos de Análisis */}
+        <div className="space-y-8 mb-12">
+          {/* Comparativa de Ventas por Competidor */}
+          <Card className="bg-white border-neutral-200 shadow-sm">
+            <CardHeader className="pb-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-[#000f9f]/10 rounded-lg flex items-center justify-center">
+                    <BarChart3 className="h-5 w-5 text-[#000f9f]" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg font-semibold text-neutral-900">Evolución de Ventas</CardTitle>
+                    <CardDescription className="text-neutral-600">Comparativa por competidor</CardDescription>
+                  </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <Filter className="h-4 w-4 text-neutral-500" />
-                  <select className="px-3 py-2 border border-neutral-300 rounded-lg text-sm bg-white">
+                  <select className="px-3 py-2 border border-neutral-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-[#000f9f] focus:border-transparent">
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
@@ -156,89 +231,154 @@ export default function Home() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                {salesData[2023].map((competitor, index) => (
-                  <div key={index} className="flex items-center justify-between p-4 bg-neutral-50 rounded-lg border border-neutral-200">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 rounded-full bg-[#000f9f]"></div>
-                      <div>
-                        <p className="font-medium text-neutral-800">{competitor.name}</p>
-                        <p className="text-sm text-neutral-600">Crecimiento: +{competitor.crecimiento}%</p>
+              <div className="space-y-6">
+                {salesData[2023].map((competitor, index) => {
+                  const maxValue = Math.max(...salesData[2023].map(c => c.ventas))
+                  const percentage = (competitor.ventas / maxValue) * 100
+                  const isEastCrema = competitor.name === 'East Crema'
+                  
+                  return (
+                    <div key={index} className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div 
+                            className="w-3 h-3 rounded-full" 
+                            style={{ backgroundColor: COLORS[index % COLORS.length] }}
+                          ></div>
+                          <span className="font-medium text-neutral-800">{competitor.name}</span>
+                          {isEastCrema && (
+                            <span className="px-2 py-1 text-xs font-medium bg-[#000f9f]/10 text-[#000f9f] rounded-full">
+                              East Crema
+                            </span>
+                          )}
+                        </div>
+                        <div className="text-right">
+                          <span className="text-lg font-bold text-neutral-900">€{competitor.ventas}M</span>
+                          <span className="text-sm text-green-600 ml-2">+{competitor.crecimiento}%</span>
+                        </div>
+                      </div>
+                      <div className="w-full bg-neutral-100 rounded-full h-2">
+                        <div 
+                          className={`h-2 rounded-full transition-all duration-500 ${
+                            isEastCrema ? 'bg-[#000f9f]' : 'bg-neutral-400'
+                          }`}
+                          style={{ width: `${percentage}%` }}
+                        ></div>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <p className="text-lg font-bold text-neutral-800">€{competitor.ventas}M</p>
-                      <p className="text-sm text-neutral-500">Ventas 2023</p>
-                    </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </CardContent>
           </Card>
 
           {/* Comparación Año Actual vs Anterior */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-neutral-800">
-                  <Calendar className="h-5 w-5 text-neutral-600" />
-                  Comparación 2023 vs 2022
-                </CardTitle>
-                <CardDescription className="text-neutral-600">
-                  Evolución de ventas año a año
-                </CardDescription>
+            <Card className="bg-white border-neutral-200 shadow-sm">
+              <CardHeader className="pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <Calendar className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg font-semibold text-neutral-900">Comparación 2023 vs 2022</CardTitle>
+                    <CardDescription className="text-neutral-600">Evolución de ventas año a año</CardDescription>
+                  </div>
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {yearComparison.map((competitor, index) => (
-                    <div key={index} className="p-4 bg-neutral-50 rounded-lg border border-neutral-200">
-                      <div className="flex items-center justify-between mb-2">
-                        <p className="font-medium text-neutral-800">{competitor.name}</p>
-                        <span className="text-sm font-medium text-green-600">+{competitor.crecimiento}%</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <div className="text-center">
-                          <p className="text-sm text-neutral-600">2022</p>
-                          <p className="text-lg font-bold text-neutral-700">€{competitor['2022']}M</p>
+                  {yearComparison.map((competitor, index) => {
+                    const isEastCrema = competitor.name === 'East Crema'
+                    const growthColor = competitor.crecimiento > 15 ? 'text-green-600' : competitor.crecimiento > 10 ? 'text-yellow-600' : 'text-red-600'
+                    
+                    return (
+                      <div key={index} className="p-4 bg-neutral-50 rounded-lg border border-neutral-200 hover:bg-neutral-100 transition-colors">
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium text-neutral-800">{competitor.name}</span>
+                            {isEastCrema && (
+                              <span className="px-2 py-1 text-xs font-medium bg-[#000f9f]/10 text-[#000f9f] rounded-full">
+                                East Crema
+                              </span>
+                            )}
+                          </div>
+                          <span className={`text-sm font-medium ${growthColor} flex items-center gap-1`}>
+                            <TrendingUp className="h-3 w-3" />
+                            +{competitor.crecimiento}%
+                          </span>
                         </div>
-                        <div className="text-center">
-                          <p className="text-sm text-neutral-600">2023</p>
-                          <p className="text-lg font-bold text-[#000f9f]">€{competitor['2023']}M</p>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="text-center p-3 bg-white rounded-lg border border-neutral-200">
+                            <p className="text-sm text-neutral-600 mb-1">2022</p>
+                            <p className="text-xl font-bold text-neutral-700">€{competitor['2022']}M</p>
+                          </div>
+                          <div className="text-center p-3 bg-white rounded-lg border border-neutral-200">
+                            <p className="text-sm text-neutral-600 mb-1">2023</p>
+                            <p className={`text-xl font-bold ${isEastCrema ? 'text-[#000f9f]' : 'text-neutral-900'}`}>
+                              €{competitor['2023']}M
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-neutral-800">
-                  <TrendingUp className="h-5 w-5 text-neutral-600" />
-                  Crecimiento 2023
-                </CardTitle>
-                <CardDescription className="text-neutral-600">
-                  Porcentaje de crecimiento por competidor
-                </CardDescription>
+            <Card className="bg-white border-neutral-200 shadow-sm">
+              <CardHeader className="pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="h-5 w-5 text-green-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg font-semibold text-neutral-900">Crecimiento 2023</CardTitle>
+                    <CardDescription className="text-neutral-600">Porcentaje de crecimiento por competidor</CardDescription>
+                  </div>
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {growthData.map((competitor, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 bg-neutral-50 rounded-lg border border-neutral-200">
-                      <div className="flex items-center space-x-3">
-                        <div 
-                          className="w-4 h-4 rounded-full" 
-                          style={{ backgroundColor: COLORS[index % COLORS.length] }}
-                        ></div>
-                        <p className="font-medium text-neutral-800">{competitor.name}</p>
+                  {growthData.map((competitor, index) => {
+                    const isEastCrema = competitor.name === 'East Crema'
+                    const maxGrowth = Math.max(...growthData.map(c => c.crecimiento))
+                    const percentage = (competitor.crecimiento / maxGrowth) * 100
+                    
+                    return (
+                      <div key={index} className="p-4 bg-neutral-50 rounded-lg border border-neutral-200 hover:bg-neutral-100 transition-colors">
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-3">
+                            <div 
+                              className="w-4 h-4 rounded-full" 
+                              style={{ backgroundColor: COLORS[index % COLORS.length] }}
+                            ></div>
+                            <span className="font-medium text-neutral-800">{competitor.name}</span>
+                            {isEastCrema && (
+                              <span className="px-2 py-1 text-xs font-medium bg-[#000f9f]/10 text-[#000f9f] rounded-full">
+                                East Crema
+                              </span>
+                            )}
+                          </div>
+                          <div className="text-right">
+                            <p className={`text-xl font-bold ${isEastCrema ? 'text-[#000f9f]' : 'text-neutral-900'}`}>
+                              +{competitor.crecimiento}%
+                            </p>
+                            <p className="text-sm text-neutral-500">Crecimiento</p>
+                          </div>
+                        </div>
+                        <div className="w-full bg-neutral-200 rounded-full h-2">
+                          <div 
+                            className={`h-2 rounded-full transition-all duration-500 ${
+                              isEastCrema ? 'bg-[#000f9f]' : 'bg-neutral-400'
+                            }`}
+                            style={{ width: `${percentage}%` }}
+                          ></div>
+                        </div>
                       </div>
-                      <div className="text-right">
-                        <p className="text-lg font-bold text-neutral-800">+{competitor.crecimiento}%</p>
-                        <p className="text-sm text-neutral-500">Crecimiento</p>
-                      </div>
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
               </CardContent>
             </Card>
