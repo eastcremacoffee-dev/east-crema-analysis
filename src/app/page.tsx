@@ -14,7 +14,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100">
       <Navigation />
 
       <main className="container mx-auto px-4 py-8">
@@ -31,53 +31,53 @@ export default function Home() {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Competidores</CardTitle>
-              <Building2 className="h-4 w-4 text-amber-600" />
+              <CardTitle className="text-sm font-medium text-neutral-700">Competidores</CardTitle>
+              <Building2 className="h-4 w-4 text-neutral-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-amber-600">5</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-neutral-800">5</div>
+              <p className="text-xs text-neutral-500">
                 Empresas analizadas
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Documentos</CardTitle>
-              <FileText className="h-4 w-4 text-blue-600" />
+              <CardTitle className="text-sm font-medium text-neutral-700">Documentos</CardTitle>
+              <FileText className="h-4 w-4 text-neutral-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-blue-600">12</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-neutral-800">12</div>
+              <p className="text-xs text-neutral-500">
                 Cuentas anuales procesadas
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">KPIs Extraídos</CardTitle>
-              <TrendingUp className="h-4 w-4 text-green-600" />
+              <CardTitle className="text-sm font-medium text-neutral-700">KPIs Extraídos</CardTitle>
+              <TrendingUp className="h-4 w-4 text-neutral-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-green-600">45</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-neutral-800">45</div>
+              <p className="text-xs text-neutral-500">
                 Métricas financieras
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Noticias</CardTitle>
-              <Newspaper className="h-4 w-4 text-purple-600" />
+              <CardTitle className="text-sm font-medium text-neutral-700">Noticias</CardTitle>
+              <Newspaper className="h-4 w-4 text-neutral-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-purple-600">8</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-neutral-800">8</div>
+              <p className="text-xs text-neutral-500">
                 Artículos recientes
               </p>
             </CardContent>
@@ -87,13 +87,13 @@ export default function Home() {
         {/* Main Features */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Competitors Overview */}
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-amber-600" />
+              <CardTitle className="flex items-center gap-2 text-neutral-800">
+                <Users className="h-5 w-5 text-neutral-600" />
                 Competidores Principales
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="text-neutral-600">
                 Análisis de los principales competidores del sector cafetero
               </CardDescription>
             </CardHeader>
@@ -105,14 +105,14 @@ export default function Home() {
                   { name: "Nomad Coffee", revenue: "€3.2M", growth: "+18%" },
                   { name: "Cafés de Finca", revenue: "€1.5M", growth: "+8%" }
                 ].map((competitor, index) => (
-                  <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div key={index} className="flex items-center justify-between p-3 bg-neutral-50 rounded-lg border border-neutral-200">
                     <div>
-                      <p className="font-medium">{competitor.name}</p>
-                      <p className="text-sm text-gray-600">Ingresos: {competitor.revenue}</p>
+                      <p className="font-medium text-neutral-800">{competitor.name}</p>
+                      <p className="text-sm text-neutral-600">Ingresos: {competitor.revenue}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-sm font-medium text-green-600">{competitor.growth}</p>
-                      <p className="text-xs text-gray-500">Crecimiento</p>
+                      <p className="text-xs text-neutral-500">Crecimiento</p>
                     </div>
                   </div>
                 ))}
@@ -121,27 +121,27 @@ export default function Home() {
           </Card>
 
           {/* Quick Actions */}
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <BarChart3 className="h-5 w-5 text-amber-600" />
+              <CardTitle className="flex items-center gap-2 text-neutral-800">
+                <BarChart3 className="h-5 w-5 text-neutral-600" />
                 Acciones Rápidas
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="text-neutral-600">
                 Herramientas principales para análisis de competidores
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 gap-4">
-                <Button className="h-16 flex flex-col items-center justify-center bg-amber-600 hover:bg-amber-700">
+                <Button className="h-16 flex flex-col items-center justify-center bg-[#000f9f] hover:bg-[#000d8a] text-white">
                   <Upload className="h-6 w-6 mb-2" />
                   <span>Subir Cuentas Anuales</span>
                 </Button>
-                <Button variant="outline" className="h-16 flex flex-col items-center justify-center">
+                <Button variant="outline" className="h-16 flex flex-col items-center justify-center border-neutral-300 text-neutral-700 hover:bg-neutral-50">
                   <BarChart3 className="h-6 w-6 mb-2" />
                   <span>Comparar Competidores</span>
                 </Button>
-                <Button variant="outline" className="h-16 flex flex-col items-center justify-center">
+                <Button variant="outline" className="h-16 flex flex-col items-center justify-center border-neutral-300 text-neutral-700 hover:bg-neutral-50">
                   <TrendingUp className="h-6 w-6 mb-2" />
                   <span>Ver Dashboard KPIs</span>
                 </Button>
@@ -151,10 +151,10 @@ export default function Home() {
         </div>
 
         {/* Recent Activity */}
-        <Card className="bg-white/80 backdrop-blur-sm">
+        <Card className="bg-white/90 backdrop-blur-sm border-neutral-200">
           <CardHeader>
-            <CardTitle>Actividad Reciente</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-neutral-800">Actividad Reciente</CardTitle>
+            <CardDescription className="text-neutral-600">
               Últimas actualizaciones y análisis realizados
             </CardDescription>
           </CardHeader>
@@ -166,12 +166,12 @@ export default function Home() {
                 { action: "Reporte generado", company: "Comparativa Q3", time: "Ayer" },
                 { action: "Noticias recopiladas", company: "Sector cafetero", time: "Hace 1 día" }
               ].map((activity, index) => (
-                <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
+                <div key={index} className="flex items-center justify-between p-3 border border-neutral-200 rounded-lg bg-neutral-50">
                   <div>
-                    <p className="font-medium">{activity.action}</p>
-                    <p className="text-sm text-gray-600">{activity.company}</p>
+                    <p className="font-medium text-neutral-800">{activity.action}</p>
+                    <p className="text-sm text-neutral-600">{activity.company}</p>
                   </div>
-                  <span className="text-sm text-gray-500">{activity.time}</span>
+                  <span className="text-sm text-neutral-500">{activity.time}</span>
                 </div>
               ))}
             </div>

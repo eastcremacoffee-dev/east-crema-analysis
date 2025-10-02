@@ -9,29 +9,42 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#d97706", // amber-600
+          DEFAULT: "#000f9f", // Azul corporativo
           foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "#f3f4f6", // gray-100
-          foreground: "#374151", // gray-700
+          DEFAULT: "#f8fafc", // slate-50
+          foreground: "#475569", // slate-600
         },
         accent: {
-          DEFAULT: "#fbbf24", // amber-400
-          foreground: "#ffffff",
+          DEFAULT: "#e2e8f0", // slate-200
+          foreground: "#334155", // slate-700
         },
         background: "#ffffff",
-        foreground: "#111827", // gray-900
+        foreground: "#0f172a", // slate-900
         card: {
           DEFAULT: "#ffffff",
-          foreground: "#111827",
+          foreground: "#0f172a",
         },
-        border: "#e5e7eb", // gray-200
-        input: "#e5e7eb",
-        ring: "#d97706", // amber-600
+        border: "#e2e8f0", // slate-200
+        input: "#e2e8f0",
+        ring: "#000f9f", // Azul corporativo
         muted: {
-          DEFAULT: "#f9fafb", // gray-50
-          foreground: "#6b7280", // gray-500
+          DEFAULT: "#f1f5f9", // slate-100
+          foreground: "#64748b", // slate-500
+        },
+        // Colores neutros azulados
+        neutral: {
+          50: "#f8fafc",
+          100: "#f1f5f9",
+          200: "#e2e8f0",
+          300: "#cbd5e1",
+          400: "#94a3b8",
+          500: "#64748b",
+          600: "#475569",
+          700: "#334155",
+          800: "#1e293b",
+          900: "#0f172a",
         },
       },
       borderRadius: {

@@ -22,16 +22,16 @@ export function Navigation() {
   const pathname = usePathname()
 
   return (
-    <nav className="bg-white/90 backdrop-blur-sm border-b sticky top-0 z-50">
+    <nav className="bg-white/95 backdrop-blur-sm border-b border-neutral-200 sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="flex items-center justify-center w-8 h-8 bg-amber-600 rounded-lg">
+            <div className="flex items-center justify-center w-8 h-8 bg-[#000f9f] rounded-lg">
               <Coffee className="h-5 w-5 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">East Crema</h1>
+              <h1 className="text-xl font-bold text-neutral-900">East Crema</h1>
             </div>
           </Link>
 
@@ -43,7 +43,7 @@ export function Navigation() {
                 <Link key={item.name} href={item.href}>
                   <Button 
                     variant={isActive ? "default" : "ghost"}
-                    className={isActive ? "bg-amber-600 hover:bg-amber-700" : ""}
+                    className={isActive ? "bg-[#000f9f] hover:bg-[#000d8a] text-white" : "text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100"}
                   >
                     <item.icon className="h-4 w-4 mr-2" />
                     {item.name}
